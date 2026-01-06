@@ -340,7 +340,7 @@ export default function ComingSoonPage() {
             </div>
             <span>LineupDesigner</span>
           </div>
-          <div>&copy; 2025 LineupDesigner. All rights reserved.</div>
+          <div>&copy; 2026 LineupDesigner. All rights reserved.</div>
         </div>
       </footer>
     </div>
