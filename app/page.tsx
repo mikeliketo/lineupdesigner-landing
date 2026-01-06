@@ -113,8 +113,8 @@ export default function ComingSoonPage() {
         </div>
       </section>
 
-      {/* App Preview */}
-      <section className="pb-24 px-6">
+      {/* App Preview - Desktop */}
+      <section className="pb-24 px-6 hidden md:block">
         <div className="max-w-6xl mx-auto">
           <div className="opacity-0 animate-fade-in delay-400 relative">
             {/* Browser frame with fixed aspect ratio */}
@@ -135,8 +135,55 @@ export default function ComingSoonPage() {
 
               {/* App mockup with proper aspect ratio - scaled down screenshot */}
               <div className="relative w-full overflow-hidden" style={{ aspectRatio: "16/10" }}>
-                <div className="absolute top-0 left-0 w-[1400px] h-[875px] bg-gradient-to-br from-[#0f0f12] to-[#1a1a1f] p-6 origin-top-left scale-[0.65] md:scale-[0.70] lg:scale-[0.80]">
+                <div className="absolute top-0 left-0 w-[1400px] h-[875px] bg-gradient-to-br from-[#0f0f12] to-[#1a1a1f] p-6 origin-top-left scale-[0.70] lg:scale-[0.80]">
                   <AppMockup />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* App Preview - Mobile */}
+      <section className="pb-16 px-6 md:hidden">
+        <div className="max-w-sm mx-auto">
+          <div className="opacity-0 animate-fade-in delay-400">
+            <div className="bg-[#1a1a1f] rounded-lg border border-[#27272a] overflow-hidden glow-box p-4">
+              <h3 className="text-sm font-medium text-[#a1a1aa] mb-3">Preview: 5v5 Lineup Builder</h3>
+
+              {/* Simplified mobile preview */}
+              <div className="space-y-2">
+                <div className="text-xs text-[#a1a1aa] mb-1">Line 1</div>
+                <div className="grid grid-cols-3 gap-2">
+                  <MobilePlayerCard number="12" name="VIRTANEN" pos="LW" />
+                  <MobilePlayerCard number="23" name="BERGMAN" pos="C" />
+                  <MobilePlayerCard number="16" name="NOVAK" pos="RW" />
+                </div>
+
+                <div className="text-xs text-[#a1a1aa] mb-1 mt-3">Defense 1</div>
+                <div className="grid grid-cols-2 gap-2">
+                  <MobilePlayerCard number="3" name="LINDQVIST" pos="LD" />
+                  <MobilePlayerCard number="5" name="HORVAT" pos="RD" />
+                </div>
+
+                <div className="text-xs text-[#a1a1aa] mb-1 mt-3">Goalie</div>
+                <div className="grid grid-cols-2 gap-2">
+                  <MobilePlayerCard number="30" name="NIEMINEN" pos="G" />
+                  <div className="border border-dashed border-[#27272a] rounded p-2 flex items-center justify-center">
+                    <span className="text-xs text-[#a1a1aa]">G</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-[#27272a] flex justify-between items-center">
+                <span className="text-xs text-[#a1a1aa]">Drag & drop to build lineups</span>
+                <div className="flex gap-1">
+                  <div className="w-6 h-6 bg-[#d4a574] rounded flex items-center justify-center">
+                    <Save className="w-3 h-3 text-black" />
+                  </div>
+                  <div className="w-6 h-6 bg-[#27272a] rounded flex items-center justify-center">
+                    <Share2 className="w-3 h-3 text-[#a1a1aa]" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -662,6 +709,23 @@ function EmptySlot({ pos }: { pos: string }) {
   return (
     <div className="border border-dashed border-[#27272a] rounded p-2 flex items-center justify-center">
       <span className="text-xs text-[#a1a1aa]">{pos}</span>
+    </div>
+  )
+}
+
+// Mobile-optimized player card for smaller screens
+function MobilePlayerCard({ name, number, pos }: { name: string; number: string; pos: string }) {
+  return (
+    <div className="bg-gradient-to-br from-[#0f0f12] to-[#1a1a1f] border border-[#27272a] rounded p-2">
+      <div className="flex items-center justify-between mb-1">
+        <span className="text-[#d4a574] font-black text-sm" style={{ textShadow: "0 0 10px rgba(212,165,116,0.4)" }}>
+          {number}
+        </span>
+        <span className="text-[8px] px-1 py-0.5 border border-[#d4a574] text-[#d4a574]">
+          {pos}
+        </span>
+      </div>
+      <div className="text-[10px] font-bold uppercase tracking-tight text-white truncate">{name}</div>
     </div>
   )
 }
