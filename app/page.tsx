@@ -340,7 +340,12 @@ export default function ComingSoonPage() {
             </div>
             <span>LineupDesigner</span>
           </div>
-          <div>&copy; 2026 LineupDesigner. All rights reserved.</div>
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-6">
+            <a href="mailto:info@lineupdesigner.com" className="hover:text-[#d4a574] transition-colors">
+              info@lineupdesigner.com
+            </a>
+            <div>&copy; 2026 LineupDesigner. All rights reserved.</div>
+          </div>
         </div>
       </footer>
     </div>
