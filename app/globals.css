@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #0f0f12;
+  --color-card: #1a1a1f;
+  --color-accent: #d4a574;
+  --color-muted: #a1a1aa;
+  --color-border: #27272a;
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0f12 0%, #1a1a1f 100%);
+  color: white;
+  font-family: var(--font-sans);
+  min-height: 100vh;
+}
+
+.glow-text {
+  text-shadow: 0 0 30px rgba(212, 165, 116, 0.6);
+}
+
+.glow-box {
+  box-shadow: 0 0 30px rgba(212, 165, 116, 0.2);
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(-2deg); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
