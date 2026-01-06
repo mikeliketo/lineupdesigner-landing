@@ -269,6 +269,68 @@ export default function ComingSoonPage() {
         </div>
       </section>
 
+      {/* About Section */}
+      <section className="py-24 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Built by Coaches, for Coaches</h2>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-[#1a1a1f] rounded-lg border border-[#27272a] p-6">
+              <div className="w-12 h-12 bg-[#d4a574]/10 rounded-lg flex items-center justify-center text-[#d4a574] mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Swedish Based</h3>
+              <p className="text-[#a1a1aa] text-sm">
+                LineupDesigner is developed in Sweden — a country with deep hockey traditions
+                and a passion for the sport at every level, from youth teams to the pros.
+              </p>
+            </div>
+
+            <div className="bg-[#1a1a1f] rounded-lg border border-[#27272a] p-6">
+              <div className="w-12 h-12 bg-[#d4a574]/10 rounded-lg flex items-center justify-center text-[#d4a574] mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Real Experience</h3>
+              <p className="text-[#a1a1aa] text-sm">
+                We've been in your shoes — managing rosters, balancing ice time, organizing
+                training groups, and creating fair lineups. We know the struggles firsthand.
+              </p>
+            </div>
+
+            <div className="bg-[#1a1a1f] rounded-lg border border-[#27272a] p-6">
+              <div className="w-12 h-12 bg-[#d4a574]/10 rounded-lg flex items-center justify-center text-[#d4a574] mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Camp & Cup Veterans</h3>
+              <p className="text-[#a1a1aa] text-sm">
+                From hockey camps with 200+ participants to weekend tournaments with
+                multiple age groups — we've planned them all and built tools to make it easier.
+              </p>
+            </div>
+
+            <div className="bg-[#1a1a1f] rounded-lg border border-[#27272a] p-6">
+              <div className="w-12 h-12 bg-[#d4a574]/10 rounded-lg flex items-center justify-center text-[#d4a574] mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                </svg>
+              </div>
+              <h3 className="text-lg font-semibold mb-2">Made with Passion</h3>
+              <p className="text-[#a1a1aa] text-sm">
+                This isn't just software — it's a tool we wished existed when we were
+                spending hours with spreadsheets and whiteboards. Now we're building it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="py-8 px-6 border-t border-[#27272a]">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[#a1a1aa]">
