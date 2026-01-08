@@ -64,14 +64,14 @@ export default function ComingSoonPage() {
           </div>
 
           <h1 className="opacity-0 animate-fade-in delay-100 text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Build lineups. Plan camps.
+            Build lineups.
             <br />
-            <span className="text-[#d4a574] glow-text">Export schedules.</span>
+            <span className="text-[#d4a574] glow-text">Share with your team.</span>
           </h1>
 
           <p className="opacity-0 animate-fade-in delay-200 text-xl text-[#a1a1aa] max-w-2xl mx-auto mb-10">
-            Everything hockey teams need — in one place. Visual lineup builder,
-            camp management for 100-250+ players, smart scheduling, and professional exports.
+            The modern lineup builder for hockey coaches. Drag, drop, and share
+            beautiful lineup graphics with your team.
           </p>
 
           <p className="opacity-0 animate-fade-in delay-250 text-sm text-[#a1a1aa] mb-6">
@@ -236,51 +236,6 @@ export default function ComingSoonPage() {
         </div>
       </section>
 
-      {/* Features - Camps & Tournaments */}
-      <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-4">
-            For Camps & Tournaments
-          </h2>
-          <p className="text-[#a1a1aa] text-center mb-16 max-w-2xl mx-auto">
-            Manage 100-250+ players with ease. From registration to final whistle.
-          </p>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <FeatureCard
-              icon={<Users className="w-6 h-6" />}
-              title="Mass Player Import"
-              description="Import from Google Forms or Excel. Automatic group assignment by birth year."
-            />
-            <FeatureCard
-              icon={<Shuffle className="w-6 h-6" />}
-              title="Visual Schedule Builder"
-              description="Drag-drop activities on a timeline. Collision detection and resource management built-in."
-            />
-            <FeatureCard
-              icon={<Zap className="w-6 h-6" />}
-              title="Smart Grouping"
-              description="Auto-group by birth year with manual adjustments for play-up/play-down situations."
-            />
-            <FeatureCard
-              icon={<Shield className="w-6 h-6" />}
-              title="Match Scheduler"
-              description="Round robin, cup brackets, swiss-system. Automatic game generation and standings."
-            />
-            <FeatureCard
-              icon={<Share2 className="w-6 h-6" />}
-              title="Print-Ready Exports"
-              description="PDF schedules, name badges, match sheets. Ready for print or digital distribution."
-            />
-            <FeatureCard
-              icon={<Clock className="w-6 h-6" />}
-              title="Multi-Rink Support"
-              description="Schedule across multiple ice surfaces. Avoid conflicts and optimize ice time."
-            />
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-24 px-6 bg-[#0f0f12]/50">
         <div className="max-w-2xl mx-auto text-center">
@@ -355,10 +310,10 @@ export default function ComingSoonPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
               </div>
-              <h3 className="text-lg font-semibold mb-2">Camp & Cup Veterans</h3>
+              <h3 className="text-lg font-semibold mb-2">Youth Hockey Focus</h3>
               <p className="text-[#a1a1aa] text-sm">
-                From hockey camps with 200+ participants to weekend tournaments with
-                multiple age groups — we've planned them all and built tools to make it easier.
+                Designed specifically for youth hockey teams — from U8 to U18.
+                We understand the unique challenges of coaching young players.
               </p>
             </div>
 
@@ -468,7 +423,7 @@ function AppMockup() {
           <span className="font-semibold text-sm">LineupDesigner</span>
         </div>
         <nav className="space-y-1">
-          {["Dashboard", "Team", "5v5 Lineup", "3v3 Lineup", "Training", "Camp", "Cup"].map((item, i) => (
+          {["Dashboard", "Team", "5v5 Lineup", "3v3 Lineup", "Training", "Settings"].map((item, i) => (
             <div
               key={item}
               className={`px-3 py-2 rounded text-sm ${
