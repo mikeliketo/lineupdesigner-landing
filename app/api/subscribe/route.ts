@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import { supabaseAdmin } from "@/lib/supabase"
+import { getSupabaseAdmin } from "@/lib/supabase"
 
 export async function POST(request: Request) {
   try {
@@ -13,6 +13,7 @@ export async function POST(request: Request) {
     }
 
     // Insert new subscriber (using admin client to bypass RLS)
+    const supabaseAdmin = getSupabaseAdmin()
     const { error } = await supabaseAdmin.from("waitlist").insert({
       email: email.toLowerCase(),
       source: "landing_page",

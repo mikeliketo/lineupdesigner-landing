@@ -1,11 +1,20 @@
-import { createClient } from "@supabase/supabase-js"
+import { createClient, SupabaseClient } from "@supabase/supabase-js"
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
-
-// Client-side (anon key)
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+// Lazy initialization to avoid build-time errors when env vars are missing
+let _supabaseAdmin: SupabaseClient | null = null
 
 // Server-side only (service role key - bypasses RLS)
-export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey)
+export function getSupabaseAdmin(): SupabaseClient {
+  if (!_supabaseAdmin) {
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+    const key = process.env.SUPABASE_SERVICE_ROLE_KEY
+    if (!url || !key) {
+      throw new Error("Missing Supabase environment variables: NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY required")
+    }
+    _supabaseAdmin = createClient(url, key)
+  }
+  return _supabaseAdmin
+}
+
+// Export for backwards compatibility - use getSupabaseAdmin() instead
+export { getSupabaseAdmin as supabaseAdmin }
