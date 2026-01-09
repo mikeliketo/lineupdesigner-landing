@@ -26,79 +26,79 @@ export default function LandingPage() {
 
   // GSAP scroll animations
   useGSAP(() => {
-    // Feature cards stagger animation
+    // Feature cards stagger animation - slower with more stagger
     if (featuresRef.current) {
       const cards = featuresRef.current.querySelectorAll(".feature-card")
+      gsap.fromTo(cards,
+        { opacity: 0, y: 80 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          stagger: 0.25,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: featuresRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        }
+      )
+    }
+
+    // Preview section animation - elegant scale up
+    if (previewRef.current) {
+      gsap.fromTo(previewRef.current.querySelector(".preview-image"),
+        { opacity: 0, y: 60, scale: 0.92 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1.4,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: previewRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none"
+          }
+        }
+      )
+    }
+
+    // Gallery images stagger - one by one
+    if (galleryRef.current) {
+      const images = galleryRef.current.querySelectorAll(".gallery-image")
+      gsap.fromTo(images,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.3,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: galleryRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none"
+          }
+        }
+      )
+    }
+
+    // About cards stagger animation - smooth cascade
+    if (aboutRef.current) {
+      const cards = aboutRef.current.querySelectorAll(".about-card")
       gsap.fromTo(cards,
         { opacity: 0, y: 60 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: featuresRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none"
-          }
-        }
-      )
-    }
-
-    // Preview section animation
-    if (previewRef.current) {
-      gsap.fromTo(previewRef.current.querySelector(".preview-image"),
-        { opacity: 0, y: 40, scale: 0.95 },
-        {
-          opacity: 1,
-          y: 0,
-          scale: 1,
           duration: 1,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: previewRef.current,
-            start: "top 75%",
-            toggleActions: "play none none none"
-          }
-        }
-      )
-    }
-
-    // Gallery images stagger
-    if (galleryRef.current) {
-      const images = galleryRef.current.querySelectorAll(".gallery-image")
-      gsap.fromTo(images,
-        { opacity: 0, y: 40 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.8,
           stagger: 0.2,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: galleryRef.current,
-            start: "top 80%",
-            toggleActions: "play none none none"
-          }
-        }
-      )
-    }
-
-    // About cards stagger animation
-    if (aboutRef.current) {
-      const cards = aboutRef.current.querySelectorAll(".about-card")
-      gsap.fromTo(cards,
-        { opacity: 0, y: 50 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.7,
-          stagger: 0.12,
-          ease: "power3.out",
+          ease: "power2.out",
           scrollTrigger: {
             trigger: aboutRef.current,
-            start: "top 80%",
+            start: "top 85%",
             toggleActions: "play none none none"
           }
         }
