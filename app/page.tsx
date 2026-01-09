@@ -102,10 +102,13 @@ export default function LandingPage() {
               Get Early Access
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
-            <button className="px-8 py-4 rounded-lg text-lg font-semibold text-[var(--color-text-primary)] border border-[var(--color-accent)]/30 hover:border-[var(--color-accent)] transition-colors flex items-center gap-2">
+            <a
+              href="#preview"
+              className="px-8 py-4 rounded-lg text-lg font-semibold text-[var(--color-text-primary)] border border-[var(--color-accent)]/30 hover:border-[var(--color-accent)] transition-colors flex items-center gap-2"
+            >
               <Play className="w-5 h-5" />
-              Watch Demo
-            </button>
+              See How It Works
+            </a>
           </div>
 
           <p className="opacity-0 animate-fade-in delay-400 text-sm text-[var(--color-text-muted)]">
@@ -169,6 +172,44 @@ export default function LandingPage() {
               title="Professional Export"
               description="Beautiful lineup graphics ready for WhatsApp, Instagram, or printing."
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Preview Section */}
+      <section id="preview" className="py-32 px-6 bg-[var(--color-bg-primary)]">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-semibold text-[var(--color-text-primary)] mb-6">
+              See how it works
+            </h2>
+            <p className="text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+              Drag and drop players to build your perfect lineup. Export beautiful graphics in seconds.
+            </p>
+          </div>
+
+          {/* App Preview Image */}
+          <div className="relative rounded-lg overflow-hidden border border-[var(--color-border)] shadow-2xl">
+            <Image
+              src="/images/preview-lineup.png"
+              alt="LineupDesigner app preview showing lineup builder interface"
+              width={1920}
+              height={1080}
+              className="w-full h-auto"
+              priority
+            />
+            {/* Subtle gradient overlay for polish */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-bg-primary)]/20 via-transparent to-transparent pointer-events-none" />
+          </div>
+
+          <div className="text-center mt-12">
+            <a
+              href="#signup"
+              className="cta-button inline-flex items-center gap-2 px-8 py-4 rounded-lg text-lg font-semibold group"
+            >
+              Join Waitlist
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
         </div>
       </section>
@@ -326,6 +367,7 @@ export default function LandingPage() {
             <a href="mailto:info@lineupdesigner.com" className="hover:text-[var(--color-accent-glow)] transition-colors">
               info@lineupdesigner.com
             </a>
+            <span>Developed by LMCEDEV</span>
             <span>2026 LineupDesigner. All rights reserved.</span>
           </div>
         </div>
