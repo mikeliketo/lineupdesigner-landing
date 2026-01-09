@@ -1,14 +1,110 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { Check, Users, Shuffle, Share2, Zap, Shield, Clock, ChevronRight, Play } from "lucide-react"
 import Image from "next/image"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGSAP } from "@gsap/react"
+
+// Register GSAP plugins
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 export default function LandingPage() {
   const [email, setEmail] = useState("")
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
+
+  // Refs for GSAP animations
+  const featuresRef = useRef<HTMLDivElement>(null)
+  const previewRef = useRef<HTMLDivElement>(null)
+  const aboutRef = useRef<HTMLDivElement>(null)
+  const galleryRef = useRef<HTMLDivElement>(null)
+
+  // GSAP scroll animations
+  useGSAP(() => {
+    // Feature cards stagger animation
+    if (featuresRef.current) {
+      const cards = featuresRef.current.querySelectorAll(".feature-card")
+      gsap.fromTo(cards,
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: featuresRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none"
+          }
+        }
+      )
+    }
+
+    // Preview section animation
+    if (previewRef.current) {
+      gsap.fromTo(previewRef.current.querySelector(".preview-image"),
+        { opacity: 0, y: 40, scale: 0.95 },
+        {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: previewRef.current,
+            start: "top 75%",
+            toggleActions: "play none none none"
+          }
+        }
+      )
+    }
+
+    // Gallery images stagger
+    if (galleryRef.current) {
+      const images = galleryRef.current.querySelectorAll(".gallery-image")
+      gsap.fromTo(images,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: galleryRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none"
+          }
+        }
+      )
+    }
+
+    // About cards stagger animation
+    if (aboutRef.current) {
+      const cards = aboutRef.current.querySelectorAll(".about-card")
+      gsap.fromTo(cards,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: aboutRef.current,
+            start: "top 80%",
+            toggleActions: "play none none none"
+          }
+        }
+      )
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -141,7 +237,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div ref={featuresRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <FeatureCard
               icon={<Shuffle className="w-6 h-6" />}
               title="Visual Lineup Builder"
@@ -177,7 +273,7 @@ export default function LandingPage() {
       </section>
 
       {/* Preview Section */}
-      <section id="preview" className="py-32 px-6 bg-[var(--color-bg-primary)]">
+      <section id="preview" ref={previewRef} className="py-32 px-6 bg-[var(--color-bg-primary)]">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-semibold text-[var(--color-text-primary)] mb-6">
@@ -189,7 +285,7 @@ export default function LandingPage() {
           </div>
 
           {/* App Preview Image */}
-          <div className="relative rounded-lg overflow-hidden border border-[var(--color-border)] shadow-2xl">
+          <div className="preview-image relative rounded-lg overflow-hidden border border-[var(--color-border)] shadow-2xl">
             <Image
               src="/images/preview-lineup.png"
               alt="LineupDesigner app preview showing lineup builder interface"
@@ -227,8 +323,8 @@ export default function LandingPage() {
           </div>
 
           {/* Image Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+          <div ref={galleryRef} className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="gallery-image relative aspect-[4/3] rounded-lg overflow-hidden group">
               <Image
                 src="/images/hero/player-17.jpg"
                 alt="Hockey player #17"
@@ -244,7 +340,7 @@ export default function LandingPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-bg-primary)]/40 via-transparent to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-l from-[var(--color-bg-primary)]/40 via-transparent to-transparent" />
             </div>
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden group">
+            <div className="gallery-image relative aspect-[4/3] rounded-lg overflow-hidden group">
               <Image
                 src="/images/hero/coach-trophy.jpg"
                 alt="Coach and player with trophy"
@@ -260,7 +356,7 @@ export default function LandingPage() {
               <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-bg-primary)]/40 via-transparent to-transparent" />
               <div className="absolute inset-0 bg-gradient-to-l from-[var(--color-bg-primary)]/40 via-transparent to-transparent" />
             </div>
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden group col-span-2 md:col-span-1">
+            <div className="gallery-image relative aspect-[4/3] rounded-lg overflow-hidden group col-span-2 md:col-span-1">
               <Image
                 src="/images/hero/team-bench.jpg"
                 alt="Hockey team on bench"
@@ -291,7 +387,7 @@ export default function LandingPage() {
             Built by coaches, for coaches
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div ref={aboutRef} className="grid md:grid-cols-2 gap-8">
             <AboutCard
               title="Swedish Based"
               description="LineupDesigner is developed in Sweden - a country with deep hockey traditions and a passion for the sport at every level."
@@ -386,7 +482,7 @@ function FeatureCard({
   description: string
 }) {
   return (
-    <div className="glass-card p-8 rounded-lg hover:border-[var(--color-accent)]/30 transition-all duration-300 group">
+    <div className="feature-card glass-card p-8 rounded-lg hover:border-[var(--color-accent)]/30 transition-all duration-300 group">
       <div className="w-14 h-14 bg-[var(--color-accent)]/10 rounded-lg flex items-center justify-center text-[var(--color-accent-glow)] mb-6 group-hover:bg-[var(--color-accent)]/20 transition-colors">
         {icon}
       </div>
@@ -404,7 +500,7 @@ function AboutCard({
   description: string
 }) {
   return (
-    <div className="glass-card p-8 rounded-lg">
+    <div className="about-card glass-card p-8 rounded-lg">
       <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">{title}</h3>
       <p className="text-[var(--color-text-secondary)] leading-relaxed">{description}</p>
     </div>
